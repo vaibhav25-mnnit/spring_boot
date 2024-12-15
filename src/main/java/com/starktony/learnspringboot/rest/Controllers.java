@@ -1,6 +1,6 @@
 package com.starktony.learnspringboot.rest;
 
-import com.starktony.learnspringboot.common.Coach;
+import com.starktony.util.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +28,5 @@ public class Controllers {
     }
 }
 /*
-    what is happening behind the scenes in constructor injection
-        Coach argCoach = new CricketCoach();
-        Controller controller = new Controller(argCoach);
+    by default spring boot will create the object of the classes defined within the same package with '@component' annotation
  */

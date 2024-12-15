@@ -1,4 +1,4 @@
-package com.starktony.learnspringboot.common;
+package com.starktony.util;
 
 import org.springframework.stereotype.Component;
 
