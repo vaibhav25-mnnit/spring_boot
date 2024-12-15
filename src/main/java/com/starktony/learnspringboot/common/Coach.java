@@ -1,4 +1,4 @@
-package com.starktony.util;
+package com.starktony.learnspringboot.common;
 
 
 public interface Coach {

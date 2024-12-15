@@ -1,6 +1,6 @@
 package com.starktony.learnspringboot.rest;
 
-import com.starktony.util.Coach;
+import com.starktony.learnspringboot.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
