@@ -3,6 +3,7 @@ package com.starktony.learnspringboot.rest;
 import com.starktony.learnspringboot.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,8 @@ public class Controllers {
     private Coach myCoach;
 
     @Autowired
-    public Controllers(Coach myCoach){
+    public Controllers(@Qualifier("cricketCoach") Coach myCoach){
+        System.out.println("In constructor : "+getClass().getSimpleName());
         this.myCoach = myCoach;
     }
 
@@ -29,11 +31,9 @@ public class Controllers {
     }
 }
 /*
-    -->add the '@Qualifier' annotation with beans name with first letter as small to specify which bean to use
+    -->by default all the beans are created at the startup of the app
 
-    -->or if you don't want to do that you can use '@Primary' annotation which will create that bean if not mentioned with '@Qualifier'
+    -->we can restrict the bean creation by using the '@Lazy' at the top of the app, this will allow the creation of bean only when that particular bean is required.
 
-    -->ALso the '@Primary' annotation can only be used for once among the similar classes
-
-    -->priority of @Qualifier >> @primary
+    --->also we can make all the beans lazy by updating the application.properties file to 'spring.main.lazy-initialization-true'
  */
