@@ -1,12 +1,11 @@
 package com.starktony.learnspringboot.common;
-
 import org.springframework.stereotype.Component;
 
 @Component
-public class CricketCoach implements Coach{
+public class TennisCoach implements  Coach{
 
     @Override
     public String getDailyWorkOut() {
-        return "practice cover drive and pull shot for 1 hour each";
+        return "Practice service using the upper hand gesture for 30 minutes";
     }
 }

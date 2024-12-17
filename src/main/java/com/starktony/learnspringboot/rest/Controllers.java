@@ -2,6 +2,7 @@ package com.starktony.learnspringboot.rest;
 
 import com.starktony.learnspringboot.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,11 +15,11 @@ public class Controllers {
         return "This is a spring boot app to learn about "+ learn;
     }
 
-    //private field for dependencys
+    //private field for dependencies
     private Coach myCoach;
 
     @Autowired
-    public void setCoach(Coach myCoach){
+    public Controllers(@Qualifier("tennisCoach")  Coach myCoach){
         this.myCoach = myCoach;
     }
 
@@ -28,5 +29,5 @@ public class Controllers {
     }
 }
 /*
-    by default spring boot will create the object of the classes defined within the same package with '@component' annotation
+    -->add the '@Qualifier' annotation with beans name with first letter as small to specify which bean to use
  */
