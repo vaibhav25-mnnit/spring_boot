@@ -18,8 +18,8 @@ public class Controllers {
     private Coach myCoach;
 
     @Autowired
-    public Controllers(Coach argCoach){
-        myCoach = argCoach;
+    public void setCoach(Coach myCoach){
+        this.myCoach = myCoach;
     }
 
     @GetMapping("/getworkout")
