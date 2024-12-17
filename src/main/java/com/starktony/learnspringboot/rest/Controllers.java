@@ -19,7 +19,7 @@ public class Controllers {
     private Coach myCoach;
 
     @Autowired
-    public Controllers(@Qualifier("tennisCoach")  Coach myCoach){
+    public Controllers(Coach myCoach){
         this.myCoach = myCoach;
     }
 
@@ -30,4 +30,10 @@ public class Controllers {
 }
 /*
     -->add the '@Qualifier' annotation with beans name with first letter as small to specify which bean to use
+
+    -->or if you don't want to do that you can use '@Primary' annotation which will create that bean if not mentioned with '@Qualifier'
+
+    -->ALso the '@Primary' annotation can only be used for once among the similar classes
+
+    -->priority of @Qualifier >> @primary
  */
