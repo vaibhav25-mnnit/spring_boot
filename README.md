@@ -1,21 +1,26 @@
 
-# Bean Scope
+# Bean Life Cycle Methods
 
-- by default spring container created only one instance of a bran
-- it is cached in memory
-- any where that bean is used for dependency injection ,the injection will reference to same bean
-- you can specify which scope you want to give as given below
+- all beans are created when the spring container is started and are destroyed as he container is shutdown
+- you can write your custom init method when the bean is initialized at start and custom destroy method before the destruction of a bean
+- you can handle you custom business logic in this methods like setting up resources (db,socket,files,etc) and cleaning up them
+- you can do the same in code as below
  ``` 
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-                    or
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @PostConstruct 
+    public void doSomethingAfterInitilise(){
+        System.out.println("Do your stuff after the bean is set");
+    }
+
+    @PreDestroy
+    public void dodoSomethingABeforeDestroy(){
+        System.out.println("Do your stuff before the bean is destroyed");
+    }
 ```
-- In prototype scope each time new instance of bean is created.
 
 
 ## Documentation
 
-[Read more here](https://www.geeksforgeeks.org/singleton-and-prototype-bean-scopes-in-java-spring/)
+[Read more here](https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/)
 
 
 ## Authors
