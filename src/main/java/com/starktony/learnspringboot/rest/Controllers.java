@@ -30,10 +30,3 @@ public class Controllers {
         return myCoach.getDailyWorkOut();
     }
 }
-/*
-    -->by default all the beans are created at the startup of the app
-
-    -->we can restrict the bean creation by using the '@Lazy' at the top of the app, this will allow the creation of bean only when that particular bean is required.
-
-    --->also we can make all the beans lazy by updating the application.properties file to 'spring.main.lazy-initialization-true'
- */
