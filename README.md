@@ -1,17 +1,21 @@
 
-# Lazy intilization
+# Bean Scope
 
-- by default all the beans are created at the startup of the app
-
-- we can restrict the bean creation by using the '@Lazy' at the top of the app, this will allow the creation of bean only when that particular bean is required.
-- also we can make all the beans lazy by updating the application.properties file as
-```xml
-spring.main.lazy-initialization = true
+- by default spring container created only one instance of a bran
+- it is cached in memory
+- any where that bean is used for dependency injection ,the injection will reference to same bean
+- you can specify which scope you want to give as given below
+ ``` 
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+                    or
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 ```
+- In prototype scope each time new instance of bean is created.
+
 
 ## Documentation
 
-[Read more about lazy initialization here](https://www.geeksforgeeks.org/spring-lazy-annotation/)
+[Read more here](https://www.geeksforgeeks.org/singleton-and-prototype-bean-scopes-in-java-spring/)
 
 
 ## Authors
