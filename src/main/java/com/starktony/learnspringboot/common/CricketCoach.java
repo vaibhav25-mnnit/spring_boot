@@ -14,16 +14,6 @@ public class CricketCoach implements Coach{
     public  CricketCoach(){
         System.out.println("In constructor : "+getClass().getSimpleName());
     }
-
-    @PostConstruct
-    public void doSomethingAfterInitilise(){
-        System.out.println("Do your stuff after the bean is set");
-    }
-
-    @PreDestroy
-    public void dodoSomethingABeforeDestroy(){
-        System.out.println("Do your stuff before the bean is destroyed");
-    }
     @Override
     public String getDailyWorkOut() {
         return "practice cover drive and pull shot for 1 hour each";

@@ -1,26 +1,36 @@
 
-# Bean Life Cycle Methods
+# Config Bean
+- bean can also be created without using the @Component and we can configure the same using the @Bean
+  - use cases of @Bean
+    - make an existing third party class available to spring whose source code is not known
+    - but you can use that as a spring bean
 
-- all beans are created when the spring container is started and are destroyed as he container is shutdown
-- you can write your custom init method when the bean is initialized at start and custom destroy method before the destruction of a bean
-- you can handle you custom business logic in this methods like setting up resources (db,socket,files,etc) and cleaning up them
-- you can do the same in code as below
- ``` 
-    @PostConstruct 
-    public void doSomethingAfterInitilise(){
-        System.out.println("Do your stuff after the bean is set");
-    }
+`````java
+      //-->configuraing the bean using configuration class
+      @Configuration
+      public class SportConfig {
+      
+        @Bean
+        public Coach basketballCoach(){
+          return new BasketballCoach();
+        }
+      }
 
-    @PreDestroy
-    public void dodoSomethingABeforeDestroy(){
-        System.out.println("Do your stuff before the bean is destroyed");
-    }
-```
+      //-->injecting the configured bean
+       @Autowired
+          public Controllers(@Qualifier("basketballCoach") Coach myCoach){
+              System.out.println("In constructor : "+getClass().getSimpleName());
+              this.myCoach = myCoach;
+          }
+`````
+  
+- Note that the name of the bean in @Qualifier should be same as the method name while configuring the bean
+
 
 
 ## Documentation
 
-[Read more here](https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/)
+[Read more here](https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html)
 
 
 ## Authors

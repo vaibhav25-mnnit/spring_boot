@@ -12,7 +12,7 @@ public class Controllers {
 
     @GetMapping("/")
     String Home(){
-        String learn = "bean life cycle methods";
+        String learn = "bean configuration";
         return "This is a spring boot app to learn about "+ learn;
     }
 
@@ -20,7 +20,7 @@ public class Controllers {
     private Coach myCoach;
 
     @Autowired
-    public Controllers(@Qualifier("cricketCoach") Coach myCoach){
+    public Controllers(@Qualifier("basketballCoach") Coach myCoach){
         System.out.println("In constructor : "+getClass().getSimpleName());
         this.myCoach = myCoach;
     }
