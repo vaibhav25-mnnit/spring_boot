@@ -12,7 +12,7 @@ public class Controllers {
 
     @GetMapping("/")
     String Home(){
-        String learn = "Component scanning";
+        String learn = "lazy initialization";
         return "This is a spring boot app to learn about "+ learn;
     }
 
